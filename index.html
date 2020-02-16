@@ -11,7 +11,7 @@ github：https://github.com/bzxg-space
 		<title>一个句子</title>
 		<meta name="author" content="搬砖小哥" />
 		<!--解决http警报-->
-                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
@@ -68,6 +68,7 @@ github：https://github.com/bzxg-space
 				<hr noshade="noshade" ; />
 			</header>
 			<p>
+				<!-- 人要是行，干一行行一行一行行行行行，行行行干哪行都行。 -->
 				<script type="text/javascript" src="https://api.qinor.cn/soup/index.php?encode=js"> </script>
 				<script>
 					qinor()
@@ -77,16 +78,27 @@ github：https://github.com/bzxg-space
 		<section>
 			<header>
 				<h3>
-					名言
+					古诗词
 				</h3>
 				<hr noshade="noshade" ; />
 			</header>
-			<p>
-				<script type="text/javascript" src="https://www.juanhaoduo.com/tools/sc/api.php"> </script>
+			<p id="gushici">
+				<!--洛阳城里春光好，洛阳才子他乡老。——韦庄-->
+				<script>
+					var xhr = new XMLHttpRequest();
+					xhr.open('get', 'https://v1.jinrishici.com/all.json');
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState === 4) {
+							var data = JSON.parse(xhr.responseText);
+							var gushici = document.getElementById('gushici');
+							gushici.innerText = data.content + "——" + data.author;
+						}
+					};
+					xhr.send();
+				</script>
 			</p>
 		</section>
 		<button onclick="location.reload();">刷新一下～</button>
 		<footer>一个句子by&nbsp;搬砖小哥&nbsp;20/1/22&nbsp;接口来自<a href="https://mubu.com/doc/4MOZyURBTRD" target="_blank">网络</a></footer>
-		</script>
 	</body>
 </html>
