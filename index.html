@@ -27,10 +27,12 @@ github：https://github.com/bzxg-space
 			</header>
 			<p>
 				<!--智慧是知道下一步做什么，技能是知道如何做，而美德就是去做。-->
-				<script type="text/javascript" src="https://api.ooopn.com/ciba/api.php?type=js"> </script>
 				<script>
-					ciba()
+					function jsonpCallback(result){
+						document.write(result.note);
+					}
 				</script>
+				<script id="ajax" type="text/javascript"src="http://open.iciba.com/dsapi/?callback=jsonpCallback"></script>
 			</p>
 		</section>
 		<section>
