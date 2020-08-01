@@ -25,15 +25,30 @@ github：https://github.com/bzxg-space
 				</h3>
 				<hr noshade="noshade" ; />
 			</header>
-			<p>
+			<p id="mryj">
 				<!--智慧是知道下一步做什么，技能是知道如何做，而美德就是去做。-->
-				<script>
-					function jsonpCallback(result){
-						document.write(result.note);
-					}
-				</script>
-				<script id="ajax" type="text/javascript"src="http://open.iciba.com/dsapi/?callback=jsonpCallback"></script>
 			</p>
+			<script id="ajax" type="text/javascript"></script>
+			<script type="text/javascript">
+				function check(str) {
+					var num = parseInt(str);
+					var result;
+					if (str >= 1 && str <= 9) {
+						result = "0" + num;
+					} else {
+						result = str + "";
+					}
+					return result;
+				}
+				var d = new Date();
+				var year = d.getFullYear();
+				var month = d.getMonth() + 1;
+				var day = d.getDate();
+				function jsonpCallback(result) {
+					document.getElementById("mryj").innerHTML=result.note;
+				}
+				document.getElementById("ajax").src="http://sentence.iciba.com/index.php?c=dailysentence&m=getdetail&title=" + year + "-" + check(month) + "-" + check(day) + "&callback=jsonpCallback";
+			</script>
 		</section>
 		<section>
 			<header>
